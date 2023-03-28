@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formattare dati JSON</title>
+  </head>
+  <body>
+    <script>
+      const data = {
+        users: {
+          wqiu237uh390fvx: {
+            firstname: "luca",
+            lastname: "rossi",
+          },
+          ksxz993ql617oer: {
+            firstname: "marco",
+            lastname: "verdi",
+          },
+        },
+      };
+
+      const users = [];
+
+      for (let key of Object.keys(data.users)) {
+        users.push({
+          id: key,
+          firstname: data.users[key].firstname,
+          lastname: data.users[key].lastname,
+          //oppure
+          users.push({id: key, ...data.users[key]}) //spread operator
+        });
+      }
+    </script>
+  </body>
+</html>

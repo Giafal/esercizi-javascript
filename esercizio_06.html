@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popolare tabella dinamicamente</title>
+  </head>
+  <body>
+    <table id="tabella">
+      <thead>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Cognome</th>
+        <th>Email</th>
+        <th>Codice fiscale</th>
+        <th>Indirizzo</th>
+      </thead>
+    </table>
+    <script>
+      const data = [
+        {
+          id: 1,
+          nome: "luca",
+          cognome: "rossi",
+          email: "luca.rossi@gmail.it",
+          codiceFiscale: "lccrss87h01l109m",
+          indirizzo: "via torino",
+        },
+        {
+          id: 2,
+          nome: "marco",
+          cognome: "verdi",
+          email: "marco.verdi@gmail.it",
+          codiceFiscale: "mrcvrd98l09k888n",
+          indirizzo: "via piacenza",
+        },
+      ];
+
+      const table = document.getElementById("tabella");
+
+      data.forEach((element) => {
+        const row = document.createElement("tr");
+
+        Object.keys(element).forEach((key) => {
+          const column = document.createElement("td");
+          const text = document.createTextNode(element[key]);
+          column.appendChild(text);
+          row.appendChild(column);
+        });
+        table.appendChild(row);
+      });
+      console.log(data);
+    </script>
+  </body>
+</html>
